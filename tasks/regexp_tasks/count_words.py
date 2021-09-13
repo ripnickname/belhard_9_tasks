@@ -7,11 +7,11 @@
 import re
 
 
-def check_phone(words: str):
+def count_words(words: str):
     regex = r"\w+"
     result = re.findall(regex, words)
     print(len(result))
 
 
 if __name__ == '__main__':
-    check_phone('hello world hello world hello world')
+    count_words('hello world hello world hello world')
