@@ -22,7 +22,22 @@ https://en.wikipedia.org/wiki/Haversine_formula
 7. Вычислить ad = atan2(y, x)
 8. Вернуть ad * EARTH_R
 """
+
 import math
 
 # радиус сферы (Земли)
 EARTH_R = 6372795
+
+
+def distance(lat1, lon1, lat2, lon2):
+    lat = math.radians(lat2 - lat1)
+    lon = math.radians(lon2 - lon1)
+    lat1 = math.radians(lat1)
+    lat2 = math.radians(lat2)
+    a = math.sin(lat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(lon / 2) ** 2
+    c = 2 * math.asin(math.sqrt(a))
+    return EARTH_R * c
+
+
+if __name__ == '__main__':
+    print(distance(55.75, 37.6167, 53.8387, 27.5780))
